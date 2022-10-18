@@ -7,7 +7,7 @@ public class Hospital {
     private String category;
     private String emergencyRoom;
     private String name;
-    private String subdivision;z
+    private String subdivision;
 
     public Hospital(String id, String address, String district, String category, String emergencyRoom,
                     String name, String subdivision) {
