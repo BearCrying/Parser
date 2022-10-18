@@ -1,19 +1,17 @@
 package com.dbexercise;
 
+import com.dbexercise.domain.Connector;
 import com.dbexercise.domain.User;
 
 import java.sql.*;
 import java.util.Map;
 
-public class UserDao {
-    public void add(User user) throws ClassNotFoundException, SQLException {
-        Map<String, String> env = System.getenv();
-        String dbHost = env.get("DB_HOST");
-        String dbUser = env.get("DB_USER");
-        String dbPassword = env.get("DB_PASSWORD");
+public class UserDao extends Connector {
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(dbHost, dbUser, dbPassword);
+
+    public void add(User user) throws ClassNotFoundException, SQLException {
+        Connection conn = getConnection();
+
         PreparedStatement ps = conn.prepareStatement(
                 "INSERT INTO users(id, name, password) values(?,?,?)"
         );
@@ -27,17 +25,12 @@ public class UserDao {
     }
 
     public User findID(String id) throws SQLException, ClassNotFoundException {
-        Map<String, String> env = System.getenv();
-        String dbHost = env.get("DB_HOST");
-        String dbUser = env.get("DB_USER");
-        String dbPassword = env.get("DB_PASSWORD");
+        Connection conn = getConnection();
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(dbHost, dbUser, dbPassword);
         PreparedStatement ps = conn.prepareStatement(
                 "SELECT id, name, password FROM users WHERE id = ?"
         );
-        ps.setString(1,id);
+        ps.setString(1, id);
         ResultSet rs = ps.executeQuery();
         rs.next();
         User user = new User(rs.getString("id"),
