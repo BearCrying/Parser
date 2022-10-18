@@ -1,4 +1,4 @@
-package com.line.domain;
+package com.dbexercise.line.domain;
 
 public class Hospital {
     private String id;

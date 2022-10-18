@@ -1,7 +1,7 @@
-package com.line;
+package com.dbexercise.line;
 
-import com.line.domain.Hospital;
-import com.line.parser.HospitalParser;
+import com.dbexercise.line.domain.Hospital;
+import com.dbexercise.line.parser.HospitalParser;
 import java.io.IOException;
 import java.util.List;
 

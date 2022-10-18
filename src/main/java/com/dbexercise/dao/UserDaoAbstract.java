@@ -1,4 +1,4 @@
-package com.dbexercise;
+package com.dbexercise.dao;
 
 import com.dbexercise.domain.Connector;
 import com.dbexercise.domain.User;
@@ -6,8 +6,10 @@ import com.dbexercise.domain.User;
 import java.sql.*;
 import java.util.Map;
 
-public class UserDao extends Connector {
+public abstract class UserDaoAbstract {
 
+    public abstract Connection getConnection() throws SQLException, ClassNotFoundException;
+    //getconnection메소드를 추출해 추상메소드로 변경함.
 
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection conn = getConnection();
@@ -22,6 +24,7 @@ public class UserDao extends Connector {
         int status = ps.executeUpdate();
         ps.close();
         conn.close();
+        System.out.println("DB에 등록되었습니다.");
     }
 
     public User findID(String id) throws SQLException, ClassNotFoundException {

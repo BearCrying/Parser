@@ -1,6 +1,6 @@
-package com.line;
+package com.dbexercise.line;
 
-import com.line.domain.Hospital;
+import com.dbexercise.line.domain.Hospital;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

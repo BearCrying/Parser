@@ -1,7 +1,7 @@
-package com.line.parser;
+package com.dbexercise.line.parser;
 
 
-import com.line.domain.Hospital;
+import com.dbexercise.line.domain.Hospital;
 
 public class HospitalParser implements Parser<Hospital>{
 

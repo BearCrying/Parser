@@ -1,4 +1,4 @@
-package com.line.parser;
+package com.dbexercise.line.parser;
 
 public interface Parser<T> {
     T parse(String str);

@@ -1,6 +1,6 @@
-package com.line;
+package com.dbexercise.line;
 
-import com.line.parser.Parser;
+import com.dbexercise.line.parser.Parser;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
